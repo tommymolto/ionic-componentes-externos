@@ -1,0 +1,8 @@
+{
+  "name": "componentesExternos",
+  "app_id": "1e0a584c",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
