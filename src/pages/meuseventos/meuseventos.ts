@@ -13,6 +13,7 @@ import { Calendar } from '@ionic-native/calendar';
 @Component({
   selector: 'page-meuseventos',
   templateUrl: 'meuseventos.html',
+  providers:[Calendar]
 })
 export class MeuseventosPage {
   date: any;
