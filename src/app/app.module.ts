@@ -8,12 +8,15 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { EventoProvider } from '../providers/evento/evento';
+import {MeuseventosPage} from "../pages/meuseventos/meuseventos";
+import {CadastroeventoPage} from "../pages/cadastroevento/cadastroevento";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage
+    CadastroeventoPage,
+    MeuseventosPage
   ],
   imports: [
     BrowserModule,
@@ -22,13 +25,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage
+    MeuseventosPage,
+    CadastroeventoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    EventoProvider
   ]
 })
 export class AppModule {}
