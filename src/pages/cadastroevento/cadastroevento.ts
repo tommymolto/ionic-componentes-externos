@@ -17,10 +17,14 @@ import { Calendar } from '@ionic-native/calendar';
 })
 export class CadastroeventoPage {
 
+  lista:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private calendar: Calendar) {
-    this.calendar.createCalendar('MyCalendar').then(
-      (msg) => { console.log(msg); },
+    this.calendar.listCalendars().then(
+      (msg) => {
+        console.log(msg);
+        this.lista=msg;
+        },
       (err) => { console.log(err); }
     );
   }
