@@ -19,10 +19,10 @@
       <ion-item>
         <ion-label floating>Title</ion-label>
         <ion-input type="text" [(ngModel)]="event.title" name="event.title" (click)="porVoz()"></ion-input>
-        <button *ngIf="voz" (click)="porVoz()">Ditar</button>
+        <button ion-button *ngIf="voz" (click)="porVoz()">Ditar</button>
       </ion-item>
       <ion-item>
-        msg>{{mensagem | json }}
+        msg{{mensagem | json }}
         voz{{voz | json }}
       </ion-item>
       <ion-item>
