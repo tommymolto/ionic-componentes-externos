@@ -7,6 +7,7 @@ import { SpeechRecognition } from '@ionic-native/speech-recognition';
 @Component({
   selector: 'page-add-event',
   templateUrl: 'add-event.html',
+  providers:[SpeechRecognition]
 })
 export class AddEventPage {
 
@@ -23,6 +24,18 @@ export class AddEventPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddEventPage');
+    this.speechRecognition.hasPermission()
+      .then((hasPermission: boolean) => {
+
+        if (!hasPermission) {
+          this.speechRecognition.requestPermission()
+            .then(
+              () => console.log('Granted'),
+              () => console.log('Denied')
+            )
+        }
+
+      });
   }
 
   save() {
@@ -54,7 +67,7 @@ export class AddEventPage {
     })
   }
   porVoz(){
-    this.speechRecognition.startListening(options)
+    this.speechRecognition.startListening()
       .subscribe(
         (matches: Array<string>) => {
           console.log(matches);
