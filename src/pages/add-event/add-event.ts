@@ -24,6 +24,9 @@ export class AddEventPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddEventPage');
+  }
+  ngOnInit() {
+
     this.speechRecognition.hasPermission()
       .then((hasPermission: boolean) => {
 
@@ -36,8 +39,8 @@ export class AddEventPage {
         }
 
       });
-  }
 
+  }
   save() {
     this.calendar.createEvent(this.event.title, this.event.location, this.event.message, new Date(this.event.startDate), new Date(this.event.endDate)).then(
       (msg) => {
