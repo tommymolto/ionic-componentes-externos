@@ -30,6 +30,8 @@ export class HomePage {
   ionViewWillEnter() {
     this.date = new Date();
     this.monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    this.monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","June","July","August","September","October","November","December"];
+
     this.getDaysOfMonth();
     this.loadEventThisMonth();
   }
