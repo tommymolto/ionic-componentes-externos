@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Calendar } from '@ionic-native/calendar';
+import { SpeechRecognition } from '@ionic-native/speech-recognition';
 
 @IonicPage()
 @Component({
@@ -10,11 +11,14 @@ import { Calendar } from '@ionic-native/calendar';
 export class AddEventPage {
 
   event = { title: "", location: "", message: "", startDate: "", endDate: "" };
-
+  voz =false;
+  mensagem: any;
   constructor(public alertCtrl: AlertController,
     public navCtrl: NavController,
     public navParams: NavParams,
-    private calendar: Calendar) {
+    private calendar: Calendar,
+  private speechRecognition: SpeechRecognition) {
+    this.temVoz();
   }
 
   ionViewDidLoad() {
@@ -41,6 +45,26 @@ export class AddEventPage {
         alert.present();
       }
     );
+  }
+  temVoz(){
+    this.speechRecognition.isRecognitionAvailable()
+      .then((available: boolean) => {
+      console.log(available);
+      this.voz = true;
+    })
+  }
+  porVoz(){
+    this.speechRecognition.startListening(options)
+      .subscribe(
+        (matches: Array<string>) => {
+          console.log(matches);
+          this.mensagem = matches;
+        },
+            (onerror) => {
+              console.log('error:', onerror)
+            }
+
+      )
   }
 
 }
