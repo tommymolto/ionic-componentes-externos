@@ -20,6 +20,8 @@
         <ion-label floating>Title</ion-label>
         <ion-input type="text" [(ngModel)]="event.title" name="event.title"></ion-input>
         <button *ngIf="voz" (click)="porVoz()">Ditar</button>
+      </ion-item>
+      <ion-item>
         {{mensagen | json }}
       </ion-item>
       <ion-item>
