@@ -19,14 +19,6 @@ export class AddEventPage {
     public navParams: NavParams,
     private calendar: Calendar,
   private speechRecognition: SpeechRecognition) {
-    this.temVoz();
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddEventPage');
-  }
-  ngOnInit() {
-
     this.speechRecognition.hasPermission()
       .then((hasPermission: boolean) => {
 
@@ -39,6 +31,15 @@ export class AddEventPage {
         }
 
       });
+    this.temVoz();
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad AddEventPage');
+  }
+  ngOnInit() {
+
+
 
   }
   save() {
