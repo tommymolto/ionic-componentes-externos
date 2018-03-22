@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { Calendar } from '@ionic-native/calendar';
+import {MeuseventosPage} from "../meuseventos/meuseventos";
 
 /**
  * Generated class for the CadastroeventoPage page.
@@ -40,7 +41,7 @@ export class CadastroeventoPage {
           buttons: ['OK']
         });
         alert.present();
-        this.navCtrl.pop();
+        this.navCtrl.push(MeuseventosPage);
       },
       (err) => {
         let alert = this.alertCtrl.create({
